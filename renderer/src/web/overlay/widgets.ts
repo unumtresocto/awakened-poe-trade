@@ -63,6 +63,23 @@ export interface DelveGridWidget extends Widget {
   toggleKey: string | null
 }
 
+export type AltCraftingMod = {
+  matcher: string;
+  id: string;
+  comment?: string;
+  isEnabled?: boolean;
+};
+export type AltCraftingPreset = AltCraftingMod[];
+export type AltCraftingPresets = Record<string, AltCraftingPreset>;
+
+export interface AltCraftingWidget extends Widget {
+  hotkey: string;
+  presets: AltCraftingPresets;
+  anchor: Anchor;
+  currentPreset?: string;
+  searchMode?: 'ANY' | 'ALL';
+}
+
 export interface ImageStripWidget extends Widget {
   anchor: Anchor
   images: Array<{
